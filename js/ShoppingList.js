@@ -1,6 +1,14 @@
 function ShoppingListItems(name, description){
-  this.name = false;
-  this.description= false;
-  this.is_done= " ";
+  this.name = name;
+  this.description= description;
+  this.is_done= false;
 
+  this.check = function () {
+    is_done = true;
+   };
+
+  this.uncheck = function () {
+    is_done= false;
+  };
 }
+

@@ -1,28 +1,46 @@
-describe('shopping list items', function(){
+//validating parent class Shopping List Items
+describe('shopping list items', function () {
   var list;
 
-  beforeEach(function(){
+  beforeEach(function () {
     list = new ShoppingListItems();
   });
 
-  it('should be a function', function(){
+  it('should be a function', function () {
     expect(ShoppingListItems).to.be.a('function');
   });
 
-  it('should have a property name', function(){
+  it('should have a property name', function () {
     // var list = new ShoppingListItems();
     list.should.have.property('name');
   });
 
-  it('should have a property description', function(){
+  it('should have a property description', function () {
     list.should.have.property('description');
   });
 
-  it('should have a property is_done', function(){
-    list.should.have.property(is_done);
+  it('should have a property is_done', function () {
+    list.should.have.property('is_done');
+  });
+
+  //validating check method
+  describe('should have a method check', function(){
+    it('should be a function', function () {
+      expect(list.check).to.be.a('function');
+      list.check.should.equal('true');
+    });
+
+
+
   });
 
 
+
+
+
+
+
 });
+
 
 
