@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/nat-nat33/behavior-driven-shopping-list/issues"
   },
-  "homepage": "https://github.com/nat-nat33/behavior-driven-shopping-list#readme"
+  "homepage": "https://github.com/nat-nat33/behavior-driven-shopping-list#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
