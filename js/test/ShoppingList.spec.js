@@ -1,5 +1,5 @@
 //validating parent class Shopping List Items
-describe('shopping list items', function () {
+describe('Shopping List Items', function () {
   var items;
 
   beforeEach(function () {
@@ -24,8 +24,8 @@ describe('shopping list items', function () {
   });
 
   //validating check method
-  describe('should have a method check', function(){
-    it('should have a property check', function(){
+  describe('check', function (){
+    it('should have a property check', function (){
       items.should.have.property('check');
     });
 
@@ -41,7 +41,7 @@ describe('shopping list items', function () {
   });
 
   //validating uncheck method
-  describe('should have a method uncheck', function () {
+  describe('uncheck', function () {
     it('should have a property uncheck', function(){
       items.should.have.property('uncheck');
     });
@@ -58,7 +58,7 @@ describe('shopping list items', function () {
 
   });
 
-  describe('should have a method render', function () {
+  describe('render', function () {
     it('should have a property render', function () {
       items.should.have.property('render');
     });
@@ -68,32 +68,47 @@ describe('shopping list items', function () {
     });
 
     it('should return an html string', function () {
-      expect(items.render).to.equal("<ul>" + "<li class=" + " \"completed_" + this.is_done + "\"" + ">" + "<span>" + this.name + "</span>" + "<span>" + this.description + "</span>" + "</li>" + "</ul>");
+      expect(items.render()).to.equal("<ul>" + "<li class=" + " \"completed_" + this.is_done + "\"" + ">" + "<span>" + this.name + "</span>" + "<span>" + this.description + "</span>" + "</li>" + "</ul>");
     });
 
   });
 
 });
 
-describe('shopping list', function () {
-  var newList;
+describe('Shopping List', function () {
+  var list;
 
-  beforeEach(function(){
-    newList = new ShoppingList();
+  beforeEach(function () {
+  list = new ShoppingList();
   });
 
-  it('should be a function', function(){
-    expect(newList).to.be.a.('function');
+  it('should be a function', function () {
+    expect(ShoppingList).to.be.a('function');
   });
 
+  it('should have a property items', function () {
+    list.should.have.property('items');
+  });
 
+  describe('addItem', function () {
+    it('should be a function', function () {
+      expect(list.addItem).to.be.a('function');
+    });
 
+    it('should throw new error', function () {
+      expect(list.addItem('not an item')).to.throw(Error);
+    });
 
+    it('should have an array', function () {
+      expect(list.items.length).to.equal(1);
+    });
 
+  });
 
-
-
-
+  describe('removeItem', function () {
+    it('should be a function', function () {
+      expect(list.removeItem).to.be.a('function');
+    });
+  });
 
 });
-
