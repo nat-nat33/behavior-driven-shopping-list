@@ -1,9 +1,9 @@
 //validating parent class Shopping List Items
 describe('shopping list items', function () {
-  var list;
+  var items;
 
   beforeEach(function () {
-    list = new ShoppingListItems();
+    items = new ShoppingListItems();
   });
 
   it('should be a function', function () {
@@ -11,31 +11,31 @@ describe('shopping list items', function () {
   });
 
   it('should have a property name', function () {
-    // var list = new ShoppingListItems();
-    list.should.have.property('name');
+    // var items = new ShoppingListItems();
+    items.should.have.property('name');
   });
 
   it('should have a property description', function () {
-    list.should.have.property('description');
+    items.should.have.property('description');
   });
 
   it('should have a property is_done', function () {
-    list.should.have.property('is_done');
+    items.should.have.property('is_done');
   });
 
   //validating check method
   describe('should have a method check', function(){
     it('should have a property check', function(){
-      list.should.have.property('check');
+      items.should.have.property('check');
     });
 
     it('should be a function', function () {
-      expect(list.check).to.be.a('function');
+      expect(items.check).to.be.a('function');
     });
 
-    it('should return shopping list items is_done', function () {
-      list.check();
-      expect(list.is_done).to.be.true;
+    it('should return shopping items items is_done', function () {
+      items.check();
+      expect(items.is_done).to.be.true;
     });
 
   });
@@ -43,36 +43,49 @@ describe('shopping list items', function () {
   //validating uncheck method
   describe('should have a method uncheck', function () {
     it('should have a property uncheck', function(){
-      list.should.have.property('uncheck');
+      items.should.have.property('uncheck');
     });
 
     it('should be a function', function () {
-      expect(list.uncheck).to.be.a('function')
+      expect(items.uncheck).to.be.a('function')
       ;
     });
 
-    it('should return shopping list items is_done', function(){
-      list.uncheck();
-      expect(list.is_done).to.be.false;
+    it('should return shopping items items is_done', function(){
+      items.uncheck();
+      expect(items.is_done).to.be.false;
     });
 
   });
 
   describe('should have a method render', function () {
     it('should have a property render', function () {
-      list.should.have.property('render');
+      items.should.have.property('render');
     });
 
     it('should be a function', function () {
-      expect(list.render).to.be.a('function');
+      expect(items.render).to.be.a('function');
     });
 
     it('should return an html string', function () {
-      list.render();
-      expect(list.render).to.equal("<ul>" + "<li class=" + " \"completed_" + this.is_done + "\"" + ">" + "<span>" + this.name + "</span>" + "<span>" + this.description + "</span>" + "</li>" + "</ul>");
+      expect(items.render).to.equal("<ul>" + "<li class=" + " \"completed_" + this.is_done + "\"" + ">" + "<span>" + this.name + "</span>" + "<span>" + this.description + "</span>" + "</li>" + "</ul>");
     });
 
   });
+
+});
+
+describe('shopping list', function () {
+  var newList;
+
+  beforeEach(function(){
+    newList = new ShoppingList();
+  });
+
+  it('should be a function', function(){
+    expect(newList).to.be.a.('function');
+  });
+
 
 
 
@@ -83,6 +96,4 @@ describe('shopping list items', function () {
 
 
 });
-
-
 
