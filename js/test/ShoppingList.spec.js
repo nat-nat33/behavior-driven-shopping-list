@@ -25,14 +25,56 @@ describe('shopping list items', function () {
 
   //validating check method
   describe('should have a method check', function(){
-    it('should be a function', function () {
-      expect(list.check).to.be.a('function');
-      list.check.should.equal('true');
+    it('should have a property check', function(){
+      list.should.have.property('check');
     });
 
+    it('should be a function', function () {
+      expect(list.check).to.be.a('function');
+    });
 
+    it('should return shopping list items is_done', function () {
+      list.check();
+      expect(list.is_done).to.be.true;
+    });
 
   });
+
+  //validating uncheck method
+  describe('should have a method uncheck', function () {
+    it('should have a property uncheck', function(){
+      list.should.have.property('uncheck');
+    });
+
+    it('should be a function', function () {
+      expect(list.uncheck).to.be.a('function')
+      ;
+    });
+
+    it('should return shopping list items is_done', function(){
+      list.uncheck();
+      expect(list.is_done).to.be.false;
+    });
+
+  });
+
+  describe('should have a method render', function () {
+    it('should have a property render', function () {
+      list.should.have.property('render');
+    });
+
+    it('should be a function', function () {
+      expect(list.render).to.be.a('function');
+    });
+
+    it('should return an html string', function () {
+      list.render();
+      expect(list.render).to.equal("<ul>" + "<li class=" + " \"completed_" + this.is_done + "\"" + ">" + "<span>" + this.name + "</span>" + "<span>" + this.description + "</span>" + "</li>" + "</ul>");
+    });
+
+  });
+
+
 
 
 
