@@ -4,7 +4,7 @@
   "description": "Fork and clone this project.   Goal: Create a working, single page app.",
   "main": "index.js",
   "scripts": {
-    "test": "node_module/.bin/mocha"
+    "test": "browser-sync start --server --files \"js/**/*.js\" --index tests.html"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/nat-nat33/behavior-driven-shopping-list#readme",
   "devDependencies": {
+    "browser-sync": "^2.11.2",
     "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "livereload-js": "^2.2.2",
     "mocha": "^2.4.5"
   }
 }
