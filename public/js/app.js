@@ -1,18 +1,19 @@
-
+var listItems = new ShoppingListItem();
 var myShoppingList = new ShoppingList();
 
-var form = document.getElementById('form');
-form.addEventListener('click', function(event) {
+var listGen = document.getElementById('list');
+  list.addEventListener('click', function(event) {
   event.preventDefault();
 });
-var idx = 0;
+
+var index = 0;
 function add_to_shopping_list() {
-  var title = document.getElementById('title').value;
+  var title = document.getElementById('name').value;
   var description = ' ' + document.getElementById('description').value;
   var checkbox = document.getElementById('checkbox');
   var new_shopping_list_item = new ShoppingListItem(title, description);
 
-  checkbox.addEventListener('onchange', changeCheckedStatus(idx, checkbox));
+  checkbox.addEventListener('click', changeCheckedStatus(index, checkbox));
   myShoppingList.addItem(new_shopping_list_item);
 
   var myList = myShoppingList.render();
@@ -21,7 +22,7 @@ function add_to_shopping_list() {
   return;
 }
 
-function changeCheckedStatus(idx, checkbox) {
-  var item = myShoppingList.items[idx];
+function changeCheckedStatus(index, checkbox) {
+  var item = myShoppingList.items[index];
   console.log('myShoppingList.items',myShoppingList.items);
 }

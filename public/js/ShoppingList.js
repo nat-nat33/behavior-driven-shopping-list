@@ -7,13 +7,15 @@ var ShoppingListItem = function(name, description){
 
 ShoppingListItem.prototype.check = function(){
   this.is_done = true;
+  return this.is_done;
 };
 
 ShoppingListItem.prototype.uncheck = function(){
   this.is_done = false;
+  return this.is_done;
 };
 
-ShoppingListItem.prototype.render = function(){
+ShoppingListItem.prototype.render = function(index){
   var string = "<li class='completed_" + this.is_done + "\'><span>" + this.name + "</span><span>"+ this.description + "</span></li>";
   return string;
 
@@ -26,7 +28,7 @@ var ShoppingList = function(){
 
   this.addItem = function(item){
     if (item instanceof ShoppingListItem === false) {
-      throw new Error('Not a shopping list item.');
+      throw new Error('Not item in Shopping List');
     }
     return this.items.push(item);
   };
@@ -38,7 +40,7 @@ var ShoppingList = function(){
     }
     var index = this.items.indexOf(item);
     if (index === -1) {
-      throw new Error('Not in the shopping list.');
+      throw new Error('Not item in Shopping List.');
     }
     else {
       this.items.splice(index, 1);
@@ -49,7 +51,7 @@ var ShoppingList = function(){
     var concatItems = '';
 
     for (var i = 0; i < this.items.length; i++) {
-      concatItems += this.items[i].render();
+      concatItems += this.items[i].render(i);
     }
     return '<ul>' + concatItems + '</ul>';
   };

@@ -29,13 +29,13 @@ describe('ShoppingListItem', function() {
   describe('ShoppingListItem Methods', function(){
 
     it('should accept a name argument', function() {
-      var SL2 = new ShoppingListItem('Totally', 'Duh');
-      expect(SL2.name).to.equal('Totally');
+      var SL2 = new ShoppingListItem('flip flops', 'Roxy');
+      expect(SL2.name).to.equal('flip flops');
     });
 
     it('should accept a description argument', function() {
-      var SL2 = new ShoppingListItem('Totally', 'Duh');
-      expect(SL2.description).to.equal('Duh');
+      var SL2 = new ShoppingListItem('hat', 'red');
+      expect(SL2.description).to.equal('red');
     });
 
     describe('Check Method', function() {
@@ -66,7 +66,7 @@ describe('ShoppingListItem', function() {
       });
 
       it('should change is_done to false', function() {
-        expect(SL.uncheck()).to.be.false;
+        expect(SL.uncheck()).to.equal(false);
       });
 
 
@@ -87,10 +87,10 @@ describe('ShoppingListItem', function() {
         expect(SL.render()).to.be.a('string');
       });
 
-      var SL3 = new ShoppingListItem('Grapes', 'are happy little things');
+      var SL3 = new ShoppingListItem('Nail Polish', 'OPI');
       SL3.uncheck();
       it('should return an html formatted string with populated values', function(){
-        expect(SL3.render()).to.equal("<li class='completed_false'><span>Grapes</span><span>are happy little things</span></li>");
+        expect(SL3.render()).to.equal("<li class='completed_false'><span>Nail Polish</span><span>OPI</span></li>");
       });
 
 
@@ -138,9 +138,9 @@ describe('Shopping List', function(){
 
       it('addItem add shopping list items to items array', function(){
         var SL1 = new ShoppingList();
-        var grapes = new ShoppingListItem('grapes', 'are cute!')
-        SL1.addItem(grapes);
-        expect(SL1.items).to.include(grapes);
+        var makeUp = new ShoppingListItem('eyeshadow', 'smashbox');
+        SL1.addItem(makeUp);
+        expect(SL1.items).to.include(makeUp);
       });
 
       it('addItem should only add shopping list items', function(){
@@ -158,21 +158,21 @@ describe('Shopping List', function(){
 
       it('should remove an item from the items array', function(){
         var SL3 = new ShoppingList();
-        var carrots = new ShoppingListItem('carrots', 'are delicious!');
-        SL3.addItem(carrots);
-        expect(SL3.items).to.include(carrots);
-        SL3.removeItem(carrots);
-        expect(SL3.items).to.not.include(carrots);
+        var belt = new ShoppingListItem('belt', 'Hermes');
+        SL3.addItem(belt);
+        expect(SL3.items).to.include(belt);
+        SL3.removeItem(belt);
+        expect(SL3.items).to.not.include(belt);
       });
 
       it('should remove the last item from the items array', function(){
         var SL4 = new ShoppingList();
-        var banana = new ShoppingListItem('banana', 'is yellow.');
-        var cereal = new ShoppingListItem('cereal', 'is not always for breakfast.');
-        SL4.addItem(banana);
-        SL4.addItem(cereal);
+        var dress = new ShoppingListItem('dress', 'black cocktail');
+        var scarf = new ShoppingListItem('scarf', 'yellow');
+        SL4.addItem(dress);
+        SL4.addItem(scarf);
         SL4.removeItem();
-        expect(SL4.items).to.not.include(cereal);
+        expect(SL4.items).to.not.include(scarf);
       });
 
     }); //Ends Remove Item Method

@@ -23,14 +23,19 @@ $breakpoints: (
 
 
 // VARIABLES
-$primary-color: purple;
-$secondary-color: #ccc;
-
+$primary-color: orange;
+$secondary-color: black;
+$textcolor: white;
 
 // STYLES
 
 body {
-  // background-color: $primary-color;
+  // background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0, 0.3)),
+  background-image: url("/images/breadandstuff.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   font-family: 'Slabo 27px', serif;
 }
 
@@ -46,6 +51,7 @@ h1, h2, h3, h4 ,h5, h6{
 
 header {
   border-bottom: 2px solid $secondary-color;
+  width: 300px;
   h1 {
     padding: 30px;
     text-align: center;
@@ -84,7 +90,7 @@ header h1 a{
 
 .container {
   padding: 10px;
-  color: $primary-color;
+  color: $textcolor;
 
   h2{
     display: inline-block;

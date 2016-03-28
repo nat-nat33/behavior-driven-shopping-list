@@ -46,6 +46,11 @@ table {
   border-spacing: 0; }
 
 body {
+  background-image: url("/images/breadandstuff.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   font-family: 'Slabo 27px', serif; }
 
 a {
@@ -55,12 +60,13 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left; }
 
 header {
-  border-bottom: 2px solid #ccc; }
+  border-bottom: 2px solid black;
+  width: 300px; }
   header h1 {
     padding: 30px;
     text-align: center;
     font-size: 30px;
-    background-color: #ffe6ff; }
+    background-color: white; }
     @media only screen and (min-width: 500px) {
       header h1 {
         font-size: 40px; } }
@@ -69,10 +75,10 @@ header {
         font-size: 72px; } }
 
 header h1 a {
-  color: purple;
+  color: orange;
   transition: all 0.2s ease; }
   header h1 a:hover {
-    color: #e600e6;
+    color: #ffc966;
     transition: all 0.2s ease;
     font-size: 72px; }
     @media only screen and (min-width: 500px) {
@@ -84,10 +90,10 @@ header h1 a {
 
 .container {
   padding: 10px;
-  color: purple; }
+  color: white; }
   .container h2 {
     display: inline-block;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
     font-size: 28px; }
   .container p {
     padding: 10px 0px; }
