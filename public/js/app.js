@@ -1,31 +1,23 @@
-var myShoppingList = new ShoppingList();
+function add_to_shopping_list(){
+
+  var name = document.getElementById('name').value;
+  var description = ' ' +document.getElementById('description').value+ ' ';
+  var newList = new ShoppingListItem(name, description);
+
+  return newList;
+}
 
 function render(){
   var renderList = myShoppingList.render();
-  document.getElementById('currentList').innerHTML = myShoppingList.items;
+  console.log('renderList');
+  document.getElementById('content').innerHTML = renderList;
 }
 
-// function render(){
-//   var listItems = myList.render();
-//   document.getElementById('content').innerHTML = listItems;
-//   clearInputs();
-// }
-
-
-document.getElementById('addItem').addEventListener('click', function(){
-  var name = document.getElementById('name').value;
-  var description = ' ' + document.getElementById('description').value;
-  var newItem = new ShoppingListItem(name, description);
-  var addNewItem = myShoppingList.addItem(newItem);
-  render();
+document.getElementById('add_to_shopping_list').addEventListener('click', function(){
+var newItem = add_to_shopping_list();
+myShoppingList.addItem(newItem);
+render();
 });
 
 
-
-
-
-
-
-
-
-
+var myShoppingList = new ShoppingList();

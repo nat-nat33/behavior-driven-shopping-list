@@ -15,11 +15,14 @@ ShoppingListItem.prototype.uncheck = function(){
   return this.is_done;
 };
 
-ShoppingListItem.prototype.render = function(index){
-  var string = "<li class='completed_" + this.is_done + "\'><span>" + this.name + "</span><span>"+ this.description + "</span></li>";
+ShoppingListItem.prototype.render = function(){
+  var idx = myShoppingList.items.indexOf(this);
+  checkboxElement = "<input id='checkbox" + idx + "' type='checkbox' onchange='changeCheckedStatus(" + idx +", event.target)'>";
+  buttonElement = "<button onclick='removeItemButtonClicked(" + idx + ")'>X</<button>";
+  var string = "<li class='completed_" + this.is_done + "\'>" + checkboxElement + "<span>" + this.name + "</span><span>"+ this.description + "</span><span>" + buttonElement + "</span></li>";
   return string;
-
 };
+
 
 var ShoppingList = function(){
 
@@ -49,11 +52,9 @@ var ShoppingList = function(){
 
   this.render = function(){
     var concatItems = '';
-
     for (var i = 0; i < this.items.length; i++) {
-      concatItems += this.items[i].render(i);
+      concatItems += this.items[i].render();
     }
     return '<ul>' + concatItems + '</ul>';
   };
-
 };
