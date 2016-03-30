@@ -1,22 +1,22 @@
-var ShoppingListItem = function(name, description){
+var RemovedListItem = function(name, description){
     this.name = name;
     this.description = description;
     this.is_done = false;
 
 };
 
-ShoppingListItem.prototype.check = function(){
+RemovedListItem.prototype.check = function(){
   this.is_done = true;
   return this.is_done;
 };
 
-ShoppingListItem.prototype.uncheck = function(){
+RemovedListItem.prototype.uncheck = function(){
   this.is_done = false;
   return this.is_done;
 };
 
-ShoppingListItem.prototype.render = function(){
-  var idx = myShoppingList.items.indexOf(this);
+RemovedListItem.prototype.render = function(){
+  var idx = myRemovedList.items.indexOf(this);
   checkboxElement = "<input class='checkbox" + idx + "' type='checkbox' onchange='checkedStatus(" + idx +", event.target)'>";
   buttonElement = "<button onclick='removeItemButton(" + idx + ")'>X</<button>";
   var string = "<li class='completed_" + this.is_done + "\'>" + checkboxElement + "<span>" + this.name + "</span><span>"+ this.description + "</span><span>" + buttonElement + "</span></li>";
@@ -24,15 +24,12 @@ ShoppingListItem.prototype.render = function(){
 };
 
 
-var ShoppingList = function(){
+var RemovedList = function(){
 
   this.items = [];
 
 
   this.addItem = function(item){
-    if (item instanceof ShoppingListItem === false) {
-      throw new Error('Not item in Shopping List');
-    }
     return this.items.push(item);
   };
 
